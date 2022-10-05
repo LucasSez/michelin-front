@@ -1,0 +1,27 @@
+<form #form="ngForm" (ngSubmit)="save(form)">
+    <table>
+     <tr>
+        <th>Champ</th>
+        <th>Valeur</th>
+        <th>Erreur</th>
+     </tr>
+     <tr>
+        <td>Nom</td>
+        <td><input type="text" name="titre" #nameInput="ngModel" [(ngModel)]="nomInput" maxlength="90" required></td>
+        <td>
+            <span style="color: red" *ngIf="!nameInput.valid && nameInput.errors?.['required']"> Le champ est requis</span>
+            <span style="color: red" *ngIf="!nameInput.valid && nameInput.errors?.['maxlength']"> Le champ est trop long</span>
+        </td>
+     </tr>
+     <tr>
+        <td>Adresse</td>
+        <td><input type="text" name="adresse" #addressInput="ngModel" [(ngModel)]="adresseInput" maxlength="255" required></td>
+        <td>
+            <span style="color: red" *ngIf="!addressInput.valid && addressInput.errors?.['required']"> Le champ est requis</span>
+            <span style="color: red" *ngIf="!addressInput.valid && addressInput.errors?.['maxlength']"> Le champ est trop long</span>
+        </td>
+     </tr>
+    </table>
+    <br>
+    <button type="submit">Valider</button>
+ </form>

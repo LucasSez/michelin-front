@@ -1,0 +1,8 @@
+<h2>Détail du restaurant</h2>
+<span>{{restaurant.nom}}</span><br>
+<span><i>{{restaurant.adresse}}</i></span>
+
+<h2>Ajouter une évaluation</h2>
+<app-form-evaluation (evaluationCreated)="createEvaluation($event)"></app-form-evaluation>
+
+<h2>Modifier le restaurant</h2>

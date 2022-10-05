@@ -1,0 +1,34 @@
+<form #form="ngForm" (ngSubmit)="save(form)">
+    <table>
+     <tr>
+        <th>Champ</th>
+        <th>Valeur</th>
+        <th>Erreur</th>
+     </tr>
+     <tr>
+        <td>Auteur</td>
+        <td><input type="text" name="auteur" #authorInput="ngModel" [(ngModel)]="auteurInput" maxlength="50" required></td>
+        <td>
+            <span style="color: red" *ngIf="!authorInput.valid && authorInput.errors?.['required']"> Le champ est requis</span>
+            <span style="color: red" *ngIf="!authorInput.valid && authorInput.errors?.['maxlength']"> Le champ est trop long</span>
+        </td>
+     </tr>
+     <tr>
+        <td>Message</td>
+        <td><input type="text" name="message" #commentInput="ngModel" [(ngModel)]="messageInput" maxlength="255" required></td>
+        <td>
+            <span style="color: red" *ngIf="!commentInput.valid && commentInput.errors?.['required']"> Le champ est requis</span>
+            <span style="color: red" *ngIf="!commentInput.valid && commentInput.errors?.['maxlength']"> Le champ est trop long</span>
+        </td>
+     </tr>
+     <tr>
+        <td>Note</td>
+        <td><input type="number" name="note" #reviewInput="ngModel" [(ngModel)]="messageInput" required></td>
+        <td>
+            <span style="color: red" *ngIf="!reviewInput.valid && reviewInput.errors?.['required']"> Le champ est requis</span>
+        </td>
+     </tr>
+    </table>
+    <br>
+    <button type="submit">Valider</button>
+ </form>

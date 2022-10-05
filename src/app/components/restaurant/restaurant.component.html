@@ -1,0 +1,5 @@
+<h2>Liste des restaurants</h2>
+<app-table-restaurant [restaurants]="restaurants"></app-table-restaurant>
+
+<h2>Ajouter un restaurant</h2>
+<app-form-restaurant (restaurantCreated)="createRestaurant($event)"></app-form-restaurant>
